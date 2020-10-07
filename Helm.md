@@ -32,4 +32,20 @@
       - static release name
     - ``` helm install [release] [chart] --dry-run --debug ``` 
       -  real helm instlal but without commit
-      -  cna generate a release-name
+      -  can generate a release-name
+   - Providing values for helm templates
+     - values.yaml - placed at root of the charts
+     - otherfile.yaml - helm install -f otherfile.yml
+     - variables - helm install --set goo=bar
+     - hierarchically organized in case of umbrella charts
+   - values.schema.json file helps to validate the values schema
+   - Helm Built in object properties
+     - Chart Data- you can read the chart.yaml values using the ``` {{.Chart.Name}} ``` - note the .Chart.Name refers to chart.yaml name property
+     - Release Data - ```{{.Release.Revision}}```
+     - Kubernetes Data - ex:- ``` {{.Capabilities.KubeVersion}} ```
+     - File data- ex:- ``` annotation: data:{{.Files.Get conf.ini}} ``` - accesing conf.ini at the root of charts
+   - In case of umbrella charts the root values.yaml overrides thechild value.yaml in case of overlap of properties
+   - ```global``` property in root values.yaml is accessable by all child charts
+   - ### Helm Template Functions and Pipelines
+     -  https://helm.sh/docs/chart_template_guide/functions_and_pipelines/
+     -  modifying scope property using ``` with ```
