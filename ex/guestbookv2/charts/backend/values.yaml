@@ -1,5 +1,11 @@
 secret:
-  mongodb_uri: bW9uZ29kYjovL2FkbWluOnBhc3N3b3JkQG1vbmdvZGI6MjcwMTcvZ3Vlc3Rib29rP2F1dGhTb3VyY2U9YWRtaW4=
+  mongodb_uri: 
+    username: admin
+    password: password
+    dbchart: database
+    dbtype: mongodb
+    dbport: 27017
+    dbconn: "guestbook?authSource=admin"
 
 replicaCount: 1
 

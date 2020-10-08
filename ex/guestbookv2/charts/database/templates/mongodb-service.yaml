@@ -2,13 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: mongodb
-  name: mongodb
+    name: {{include "db.fullname" . }}
+  name: {{include "db.fullname" . }}
 spec:
   ports:
     - name: mongodb
       port: 27017
       targetPort: 27017
   selector:
-    app: mongodb
-  type: NodePort
+    app: {{include "db.fullname" . }}
+  type: {{.Values.service.type}}

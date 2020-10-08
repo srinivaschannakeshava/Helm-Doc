@@ -1,0 +1,9 @@
+database: mongodb
+secret:
+  mongodb_username: "YWRtaW4="
+  mongodb_password: "cGFzc3dvcmQ="
+service:
+  type: NodePort
+  port: 80
+volume:
+  storage: 100Mi

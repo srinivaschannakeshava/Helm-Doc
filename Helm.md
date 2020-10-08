@@ -48,4 +48,21 @@
    - ```global``` property in root values.yaml is accessable by all child charts
    - ### Helm Template Functions and Pipelines
      -  https://helm.sh/docs/chart_template_guide/functions_and_pipelines/
-     -  modifying scope property using ``` with ```
+     -  modifying scope property using ``` with  end```
+     -  Logical operators 
+        -  eq , ne, gt, lt, or, and, not
+     - ``` range ``` function for looping
+     - Variables
+       - why ?- Varibles are used when you want to use certain values inside scoped sections like ``` with , range``
+       - you define variables using {{$variableName:= .Values.someProperty}}
+       - and you can use the varibale by {{$variableName}}
+     - Using helper functions 
+       - snippets in a sub-templates as _helper.tpl
+       - you define the function with - ``` define "mychart.fullname"```
+       - used inside template by {{include "mychart.fullname" .}}
+       - helpers are stored in templates file and files are prefixed by _ ex:- _healpers.tpl
+     Notes:-
+     >- .helmingnore file to skip certain files 
+     >- In chart.yaml if type is specified as library its templates are not rendered by helm 
+     >- notes.txt file -- nice way of documenting your chart- the content is displayed on console when you run helm install cmds
+      

@@ -1,7 +1,7 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: mongodb-pv-volume
+  name: {{include "db.fullname" . }}-pv-volume
   labels:
     type: local
 spec:
