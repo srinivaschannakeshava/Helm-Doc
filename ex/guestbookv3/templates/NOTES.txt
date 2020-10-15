@@ -1,0 +1,12 @@
+Congratulations ! You Installed {{ .Chart.Name }} chart successfully.
+Release name is {{ .Release.Name }}
+
+You can access the Guestbook app at the following urls:
+
+{{- range .Values.ingress.hosts }}
+
+http://{{ $.Release.Name }}.{{.host.domain}}
+
+{{- end }}
+
+Have a Great Day ahead!!..

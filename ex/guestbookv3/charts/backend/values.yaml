@@ -1,0 +1,22 @@
+secret:
+  mongodb_uri: 
+    username: admin
+    password: password
+    dbchart: database
+    dbtype: mongodb
+    dbport: 27017
+    dbconn: "guestbook?authSource=admin"
+
+replicaCount: 1
+
+image:
+  repo: phico/backend
+  tag: "2.0"
+
+service:
+  port: 80
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  host: backend.local
