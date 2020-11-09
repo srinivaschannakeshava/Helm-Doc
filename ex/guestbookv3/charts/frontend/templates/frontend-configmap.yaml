@@ -5,3 +5,12 @@ metadata:
 data:
   guestbook-name: {{.Values.config.guestbook_name}}
   backend-uri: http://{{.Release.Name}}.{{.Values.config.backend_uri}}
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{include "frontend.fullname" .}}-config-file
+data:
+{{ (tpl (.Files.Glob "conf/*").AsConfig . ) | indent 2 }}

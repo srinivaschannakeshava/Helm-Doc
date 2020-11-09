@@ -65,8 +65,29 @@
      >- .helmingnore file to skip certain files 
      >- In chart.yaml if type is specified as library its templates are not rendered by helm 
      >- notes.txt file -- nice way of documenting your chart- the content is displayed on console when you run helm install cmds
-      
+
+      > note: running example 
+      >    - helm install dev .\guestbookv3\  
+      >    - helm install test .\guestbookv3\ 
+
+### Packaging chart
+- Package your chart before deployment
+  - cmd : ``` helm package chart_name ```
+- Helm repository - a simple http file server for storing helm packages
+- create index.yaml in the helm reposif=tory by cmd ```helm repo index .```
+- chartmuseum is a http server dedicated for helm charts
+- ``` helm package --sign ``` -sigining your charts
+- ``` helm verify chart.tgz ``` - verifying your chart
+- ``` helm install --verify ```
+- ``` helm repo add myrepo http://localhost:8080 ```
+
+### Chart dependencies
+- dependencies properties in Chart.yaml in umbrella chart
+- ``` helm dependency update guestbook``` - downloads the latest guestbook dependencies as per the dependency in chart.yaml
+- ``` helm dependecy build guestbook``` - create a lock file chart.lock and use the version only specified in dependencies in chart.yaml+
+- ``` helm dependency list guestbook ``` - list dependcies of guestbook chart
+- conditions and tags
+- 
 
 
-      > note: running example - helm install dev .\guestbookv3\  
-      > helm install test .\guestbookv3\ 
+> Note: - A compressive helm example can be found here - https://github.com/cetic/helm-nifi

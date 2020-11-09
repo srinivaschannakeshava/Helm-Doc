@@ -23,3 +23,7 @@
 - ``` helm list ``` - list releases
 - ``` helm get manifest demo-guestbook ``` - lists the manifest
   
+# packaging helm chart
+
+- ``` helm package chart_name ``` -- package your chart
+- 
